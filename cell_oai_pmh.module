@@ -12,7 +12,8 @@
  */
 function cell_oai_pmh_views_oai_pmh_metadata_format_alter(&$format) {
   if ($format->id == 'mods') {
-    $format->root_attributes['xmlns:cell'] = 'http://cellproject.net/schemas/cell-mods-extension';
+    $format->namespaces['cell'] = 'http://cellproject.net/schemas/cell-mods-extension';
+    $format->root_attributes['xmlns:cell'] = $format->namespaces['cell'];
 
     // Attributes.
     $format->attributes['extension/cell:originInfo/cell:publisher'] = array('displayLabel', 'dateLastAccessed', 'note', 'access', 'usage', 'xlink:href', 'ID', 'lang', 'xml:lang', 'script', 'transliteration');
